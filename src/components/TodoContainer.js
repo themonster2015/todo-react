@@ -35,10 +35,19 @@ export default class TodoContainer extends Component {
                 })
            }))
        }
+
+       delTodo = (id) => {
+           this.setState({
+               todos: [
+                   ...this.state.todos.filter(todo =>
+                    todo.id !== id)
+               ]
+           })
+       }
     render() {
         return (
             <> 
-            <TodosList todos={this.state.todos} handleChangeProps={this.handleChange} />
+            <TodosList todos={this.state.todos} handleChangeProps={this.handleChange} deleteTodoProps={this.delTodo} />
             </>
         )
     }
