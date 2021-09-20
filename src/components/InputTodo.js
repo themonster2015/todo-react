@@ -9,9 +9,21 @@ export default class InputTodo extends Component {
             title : e.target.value
         })
     }
+    handleSubmit = (e) => {
+        e.preventDefault()
+        if(this.state.title.trim()){
+            this.props.addTodoProps(this.state.title)
+            this.setState({
+                title: ''
+            })
+        } else {
+            alert("Please write item")
+        }
+       
+    }
     render() {
         return (
-           <form>
+           <form onSubmit={this.handleSubmit}>
                <input type="text " placeholder="Enter todo..." value={this.state.title} onChange={this.onChange} />
                <button type="submit">Add</button>
            </form>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import TodosList from './TodosList';
 import InputTodo from './InputTodo';
+import {v4 as uuidv4} from 'uuid'
 
 export default class TodoContainer extends Component {
     state = {
@@ -45,10 +46,21 @@ export default class TodoContainer extends Component {
                ]
            })
        }
+
+       addTodoItem = item => {
+           const newTodo = {
+               id: uuidv4(),
+               title: item,
+                completed: false
+           }
+           this.setState({
+               todos: [...this.state.todos, newTodo]
+           })
+       }
     render() {
         return (
             <> 
-            <InputTodo />
+            <InputTodo addTodoProps={this.addTodoItem} />
             <TodosList todos={this.state.todos} handleChangeProps={this.handleChange} deleteTodoProps={this.delTodo} />
             </>
         )
