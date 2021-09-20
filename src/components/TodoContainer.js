@@ -21,10 +21,14 @@ export default class TodoContainer extends Component {
           }
         ]
        };
+
+       handleChange = () => {
+           console.log("Clicked")
+       }
     render() {
         return (
             <> 
-            <TodosList todos={this.state.todos} />
+            <TodosList todos={this.state.todos} handleChangeProps={this.handleChange} />
             </>
         )
     }
