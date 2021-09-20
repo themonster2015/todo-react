@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import TodosList from './TodosList';
+import InputTodo from './InputTodo';
 
 export default class TodoContainer extends Component {
     state = {
@@ -47,6 +48,7 @@ export default class TodoContainer extends Component {
     render() {
         return (
             <> 
+            <InputTodo />
             <TodosList todos={this.state.todos} handleChangeProps={this.handleChange} deleteTodoProps={this.delTodo} />
             </>
         )
