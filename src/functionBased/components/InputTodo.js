@@ -1,30 +1,28 @@
-
-import React,{useState} from 'react'
-import {FaPlusCircle} from 'react-icons/fa'
+/* eslint-disable jsx-a11y/control-has-associated-label */
+import React, { useState } from 'react';
+import { FaPlusCircle } from 'react-icons/fa';
 
 const InputTodo = (props) => {
-    const [title,setTitle] = useState('')
+  const [title, setTitle] = useState('');
 
-   const onChange = (e) => {
-        setTitle(e.target.value) 
-        
+  const onChange = (e) => {
+    setTitle(e.target.value);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (title.trim()) {
+      props.addTodoProps(title);
+      setTitle('');
+    } else {
+      alert('Please write item');
     }
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        if(title.trim()){
-            props.addTodoProps(title)
-           setTitle('')
-        } else {
-            alert("Please write item")
-        }
-       
-    }
-    return (
-        <form onSubmit={handleSubmit} className="form-container">
-        <input type="text " placeholder="Enter todo..." value={title} onChange={onChange} />
-        <button type="submit" className="input-submit"><FaPlusCircle /></button>
+  };
+  return (
+    <form onSubmit={handleSubmit} className="form-container">
+      <input type="text " placeholder="Enter todo..." value={title} onChange={onChange} />
+      <button type="submit" className="input-submit"><FaPlusCircle /></button>
     </form>
-    )
-}
+  );
+};
 
-export default InputTodo
+export default InputTodo;
