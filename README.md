@@ -3,7 +3,8 @@
 
 > In this project, I'll build a todo app using React.
 
-![screenshot](./app_screenshot.png)
+![Screen Shot 2021-09-21 at 06 30 44](https://user-images.githubusercontent.com/10905837/134111996-91404cea-aa34-45d8-a503-fca58569738c.png)
+
 
 Additional description about the project and its features.
 
