@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
+  const [navbarOpen, setNavbarOpen] = useState(false);
+  const handleToggle = () => {
+    setNavbarOpen((prev) => !prev);
+  };
   const links = [
     {
       id: 1,
@@ -16,7 +20,8 @@ const Navbar = () => {
   ];
   return (
     <nav className="navBar">
-      <ul>
+      <button type="button" onClick={handleToggle}>{navbarOpen ? 'Close' : 'Open'}</button>
+      <ul className={`menuNav ${navbarOpen ? 'showMenu' : ''}`}>
         {links.map((link) => <li key={link.id}><NavLink to={link.path} activeClassName="active-link" exact>{link.text}</NavLink></li>)}
       </ul>
     </nav>

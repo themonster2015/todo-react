@@ -33,7 +33,7 @@ export default function TodoItem(props) {
 
   return (
     <li className={styles.item}>
-      <div onDoubleClick={handleEditing} style={viewMode}>
+      <div onDoubleClick={completed ? '' : handleEditing} style={viewMode}>
         <input type="checkbox" checked={completed} onChange={() => props.handleChangeProps(id)} className={styles.checkbox} />
         <button type="button" onClick={() => props.deleteTodoProps(id)}>
           <FaTrash style={{ color: 'orangered', fontSize: '16px' }} />
